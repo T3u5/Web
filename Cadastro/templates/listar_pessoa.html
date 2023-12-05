@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<body>
+    <h1>Lista de Pessoas</h1>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>ID:</th>
+                <th>Nome:</th>
+                <th>Telefone:</th>
+                <th>Email:</th>
+                <th>Endereço:</th>
+                <th>bairro:</th>
+                <th>Cidade:</th>
+                <th>Estado:</th>
+                <th>CEP:</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pessoa in pessoas %}
+                <tr>
+                    <td>{{ pessoa.id }}</td>
+                    <td>{{ pessoa.nome }}</td>
+                    <td>{{ pessoa.telefone }}</td>
+                    <td>{{ pessoa.email }}</td>
+                    <td>{{ pessoa.endereco }}</td>
+                    <td>{{ pessoa.bairro }}</td>
+                    <td>{{ pessoa.cidade }}</td>
+                    <td>{{ pessoa.estado }}</td>
+                    <td>{{ pessoa.cep }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+ <!-- =================================================================================================-->
+    </table>
+    <h1>Lista de Pessoas Físicas</h1>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>ID:</th>
+                <th>Data de Nascimento:</th>
+                <th>Rg:</th>
+                <th>CPF:</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pessoa in pessoas_fisicas %}
+                <tr>
+                    <td>{{ pessoa.pessoa_id }}</td>
+                    <td>{{ pessoa.data_nascimento }}</td>
+                    <td>{{ pessoa.rg }}</td>
+                    <td>{{ pessoa.cpf }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+<!-- =================================================================================================-->
+    </table>
+    <h1>Lista de Pessoas Jurídicas</h1>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>CNPJ</th>
+                <th>Nome da Empresa</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pessoa in pessoas_juridicas %}
+                <tr>
+                    <td>{{ pessoa.pessoa_id }}</td>
+                    <td>{{ pessoa.cnpj }}</td>
+                    <td>{{ pessoa.nome_empresa }}</td>
+                </tr>
+            {% endfor %}
+
+         </tbody>
+    </table>
+    
+
+
+    {% endblock %}

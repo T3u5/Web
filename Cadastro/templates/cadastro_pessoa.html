@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<form method="post" action="{% url 'cadastro_pessoa' %}" >
+    {% csrf_token %}
+
+    <table class= "border-collapse:" collapse; width: 100%;>
+      <div class ="container">
+        <h2>Bom Cadastro!!</h2>
+        <label>Tipo de Pessoa:</label>
+          <select name="tipo_pessoa">
+              <option value="fisica">Pessoa Física</option>
+              <option value="juridica">Pessoa Jurídica</option>
+            </select>
+
+        {{pessoa_form.as_p}}
+        {{pessoa_fisica_form.as_p}}
+        {{pessoa_juridica_form.as_p}}
+
+        <input type="submit" value="Cadastrar">
+         
+      </div>
+    </table>
+<script>
+  function cadastrar() {
+  // Código para realizar o cadastro
+
+  // Exibe a mensagem
+  alert("Cadastro realizado com sucesso!");
+}
+
+// Atribui o evento onclick ao botão
+document.querySelector("input[type='submit']").onclick = cadastrar;
+</script>
+      
+</form>
+{% endblock %}
+
+
+
+
